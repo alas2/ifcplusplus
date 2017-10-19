@@ -38,8 +38,7 @@ void IfcCurveStyle::getStepLine( std::stringstream& stream ) const
 	if( m_CurveWidth ) { m_CurveWidth->getStepParameter( stream, true ); } else { stream << "$" ; }
 	stream << ",";
 	if( m_CurveColour ) { m_CurveColour->getStepParameter( stream, true ); } else { stream << "$" ; }
-	stream << ",";
-	if( m_ModelOrDraughting ) { m_ModelOrDraughting->getStepParameter( stream ); } else { stream << "$"; }
+	if( m_ModelOrDraughting ) {stream << ","; m_ModelOrDraughting->getStepParameter( stream ); }
 	stream << ");";
 }
 void IfcCurveStyle::getStepParameter( std::stringstream& stream, bool ) const { stream << "#" << m_id; }
